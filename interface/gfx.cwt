@@ -1,0 +1,828 @@
+types = {
+    ## type_key_filter <> { pdxparticle pdxmesh arrowType animatedmaptext tradeRouteType bitmapfont textcolors cursor_offset }
+    type[sprite] = {
+        name_field = name
+        path = "game/interface"
+        path_extension = .gfx
+        skip_root_key = spriteTypes
+
+        ## type_key_filter = LineChartType
+        subtype[linecharttype] = {}
+        ## type_key_filter = PieChartType
+        subtype[piecharttype] = {}
+        ## type_key_filter = textSpriteType
+        subtype[textspritetype] = {}
+        ## type_key_filter = spriteType
+        subtype[spritetype] = {}
+        ## type_key_filter = quadTextureSprite
+        subtype[quadtexturesprite] = {}
+        ## type_key_filter = progressbartype
+        subtype[progressbartype] = {}
+        ## type_key_filter = progressbartype
+        subtype[progressbartype_colors] = {
+            color = colour_field
+            colortwo = colour_field
+        }
+        ## type_key_filter = progressbartype
+        subtype[progressbartype_textures] = {
+            textureFile1 = filepath
+            textureFile2 = filepath
+        }
+        ## type_key_filter = corneredTileSpriteType
+        subtype[corneredtilespritetype] = {}
+        ## type_key_filter = frameAnimatedSpriteType
+        subtype[frameanimatedspritetype] = {}
+        ## type_key_filter = maskedShieldType
+        subtype[maskedshieldtype] = {}
+        
+    }
+
+    ## type_key_filter <> { LineChartType PieChartType textSpriteType spriteType quadTextureSprite progressbartype corneredTileSpriteType frameAnimatedSpriteType maskedShieldType }
+    type[bitmapfonts] = {
+        name_field = name
+        path = "game/interface"
+        path_extension = .gfx
+        skip_root_key = bitmapfonts
+
+        ## type_key_filter = bitmapfont
+        subtype[bitmapfont] = {}
+        ## type_key_filter = textcolors
+        subtype[textcolors] = {}
+    }
+
+    ## type_key_filter <> { bitmapfont textcolors cursor_offset LineChartType PieChartType textSpriteType spriteType quadTextureSprite progressbartype corneredTileSpriteType frameAnimatedSpriteType maskedShieldType }
+    type[object] = {
+        name_field = name
+        path = "game/interface"
+        path_extension = .gfx
+        skip_root_key = objectTypes
+
+        ## type_key_filter = pdxparticle
+        subtype[pdxparticle] = {}
+        ## type_key_filter = pdxmesh
+        subtype[pdxmesh] = {}
+        ## type_key_filter = arrowType
+        subtype[arrowtype] = {}
+        ## type_key_filter = animatedmaptext
+        subtype[animatedmaptext] = {}
+        ## type_key_filter = tradeRouteType
+        subtype[traderoutetype] = {}
+    }
+}
+
+enums = {
+    enum[format] = {
+        centre
+        center
+        left
+        right
+    }
+    enum[vertical_alignment] = {
+        centre
+        center
+        top
+        bottom
+    }
+    enum[orientation] = {
+        UPPER_LEFT
+        UPPER_RIGHT
+        LOWER_LEFT
+        LOWER_RIGHT
+        CENTER_LEFT
+        CENTER_RIGHT
+        CENTER
+        CENTER_UP
+        CENTER_DOWN
+    }
+    enum[load_type] = {
+        ALWAYS
+        FRONTEND
+        BACKEND
+        INGAME
+    }
+    enum[animationblendmode] = {
+        add
+        multiply
+        overlay
+    }
+    enum[animationtype] = {
+        scrolling
+        rotating
+        pulsing
+    }
+    complex_enum[text_colour_codes] = {
+        path = "game/interface"
+        name = {
+            textcolors = {
+                enum_name = { }
+            }
+        }
+    }
+}
+
+single_alias[x_y_int] = {
+    ###x
+    x = int
+    ###y
+    y = int
+}
+single_alias[x_y_float] = {
+    ###x
+    x = float
+    ###y
+    y = float
+}
+alias[2D_gui_element:load_type] = {
+    ## cardinality = 0..1
+    ###Load type
+    loadtype = enum[load_type]
+}
+
+sprite = {
+    subtype[corneredtilespritetype] = {
+        ###Name
+        name = scalar
+
+        ## cardinality = 0..1
+        ###Load type
+        loadtype = enum[load_type]
+        
+        ###Size in pixels
+        size = single_alias_right[x_y_int]
+
+        ###Bordersize
+        borderSize = single_alias_right[x_y_int]
+
+
+        ## cardinality = 0..1
+        ###Number of frames in the strip
+        noOfFrames = int
+
+        ### Path to texture file
+        textureFile = filepath
+
+        ## cardinality = 0..1
+        ### Path to shader file
+        effectFile = filepath
+
+        ## cardinality = 0..1
+        ### Transparent to cursor
+        alwaystransparent = bool
+
+        ## cardinality = 0..1
+        ### Tiling center
+        tilingCenter = bool
+
+        ## cardinality = 0..1
+        norefcount = bool
+    }
+    subtype[piecharttype] = {
+        ###Name
+        name = scalar
+
+        ## cardinality = 0..1
+        ###Load type
+        loadtype = enum[load_type]
+        
+        ###Size in pixels
+        size = int
+
+        ## cardinality = 0..1
+        norefcount = bool
+
+        #colors
+    }
+    subtype[linecharttype] = {
+        ###Name
+        name = scalar
+
+        ## cardinality = 0..1
+        ###Load type
+        loadtype = enum[load_type]
+        
+        ###Size in pixels
+        size = single_alias_right[x_y_int]
+
+        ## cardinality = 0..1
+        ### Path to shader file
+        effectFile = filepath
+
+        ###Line width
+        linewidth = int
+
+        ## cardinality = 0..1
+        norefcount = bool
+    }
+    subtype[textspritetype] = {
+        ###Name
+        name = scalar
+
+        ## cardinality = 0..1
+        ###Load type
+        loadtype = enum[load_type]
+
+        ## cardinality = 0..1
+        ###Load type
+        loadtype = enum[load_type]
+
+        ## cardinality = 0..1
+        ###Number of frames in the strip
+        noOfFrames = int
+
+        ### Path to texture file
+        textureFile = filepath
+
+        ## cardinality = 0..1
+        ### Path to shader file
+        effectFile = filepath
+
+        ## cardinality = 0..1
+        ### Sound when clicked
+        clicksound = <sound>
+
+        ## cardinality = 0..1
+        ###Default animation time
+        defaultAnimationTime = int
+
+        ## cardinality = 0..1
+        norefcount = bool
+    }
+
+    subtype[progressbartype] = {
+        ###Name
+        name = scalar
+
+        ## cardinality = 0..1
+        ###Load type
+        loadtype = enum[load_type]
+
+        ###Size in pixels
+        size = single_alias_right[x_y_int]
+
+        ## cardinality = 0..1
+        ###Set horizontal or vertical fill
+        horizontal = bool
+
+        ### Transparent to cursor
+        alwaystransparent = bool
+
+        ### Path to shader file
+        effectFile = filepath
+
+        ## cardinality = 0..1
+        norefcount = bool
+
+        #steps
+    }
+    ## type_key_filter = progressbartype
+    subtype[progressbartype_colors] = {
+        ###Left color
+        color = colour_field
+        ###Right color
+        colortwo = colour_field
+    }
+    ## type_key_filter = progressbartype
+    subtype[progressbartype_textures] = {
+        ###Path to left texture
+        textureFile1 = filepath
+        ###Path to right texture
+        textureFile2 = filepath
+    }
+    subtype[frameanimatedspritetype] = {
+        ###Name
+        name = scalar
+
+        ## cardinality = 0..1
+        ###Load type
+        loadtype = enum[load_type]
+
+        ## cardinality = 0..1
+        ###Animation Frames Per Second
+        animation_rate_fps = float
+        ## cardinality = 0..1
+        ###Animation Seconds Per Frame
+        animation_rate_spf = float
+        ## cardinality = 0..1
+        ###Loop the animation
+        looping = bool
+        ## cardinality = 0..1
+        ###Play when shown
+        play_on_show = bool
+        ## cardinality = 0..1
+        ###Pause on loop
+        pause_on_loop = int
+        pause_on_loop = float
+        ## cardinality = 0..1
+        ### Transparent to cursor
+        alwaystransparent = bool
+        ## cardinality = 0..1
+        ###Only for hardcoded strips
+        framedirectiony = bool
+        ###Path to mask texture file
+        masking_texture = filepath
+        ###Enable legacy lazy load
+        legacy_lazy_load = bool
+        ###Path to alpha mask file
+        alphamaskfile = filepath
+        ### Path to texture file
+        textureFile = filepath
+        ###Hardcoded strips only - frames per row
+        overlay_frames_per_row = int
+        ###Hardcoded strips only - overlay rows
+        overlay_rows = int
+        ###Allow low resolution
+        can_be_lowres = bool
+        ## cardinality = 0..1
+        ###Path to shader file
+        effectfile = scalar
+        ## cardinality = 0..1
+        ###Set transparent pixels as transparent to cursor
+        transparencecheck = bool
+        ## cardinality = 0..1
+        ### Sound when clicked
+        clicksound = <sound>
+        ## cardinality = 0..1
+        ###Number of frames in the strip
+        noofframes = int
+        ## cardinality = 0..1
+        ###Animation block
+        animation = {
+            ### Path to animation mask file
+            animationmaskfile = filepath
+            ### Path to texture file
+            animationtexturefile = filepath
+            ###Animation rotation  (degrees)
+            animationrotation = float
+            ###Loop animation
+            animationlooping = bool
+            ###Animation time
+            animationtime = float
+            ###Animation delay
+            animationdelay = float
+            ###Animation blend mode
+            animationblendmode = enum[animationblendmode]
+            ###Animation type
+            animationtype = enum[animationtype]
+            ###Animation rotation offset
+            animationrotationoffset = single_alias_right[x_y_float]
+            ###Animation texture scale
+            animationtexturescale = single_alias_right[x_y_float]
+            ###Animation frames
+            animationframes = {
+                ###cardinality = 1..inf
+                int[1..inf]
+            }
+        }
+        ## cardinality = 0..1
+        ###Default animation time
+        defaultanimationtime = float
+
+        ## cardinality = 0..1
+        norefcount = bool
+    }
+
+    subtype[spritetype] = {
+        ###Name
+        name = scalar
+
+        ## cardinality = 0..1
+        ###Load type
+        loadtype = enum[load_type]
+
+        ## cardinality = 0..1
+        ### Transparent to cursor
+        alwaystransparent = bool
+
+        ## cardinality = 0..1
+        ###Only for hardcoded strips
+        framedirectiony = bool
+
+        ###Path to mask texture file
+        masking_texture = filepath
+
+        ###Enable legacy lazy load
+        legacy_lazy_load = bool
+
+        ###Path to alpha mask file
+        alphamaskfile = filepath
+
+        ### Path to texture file
+        ## cardinality = 1..1
+        texturefile = filepath
+
+        ###Hardcoded strips only - frames per row
+        overlay_frames_per_row = int
+
+        ###Hardcoded strips only - overlay rows
+        overlay_rows = int
+
+        ###Allow low resolution
+        can_be_lowres = bool
+
+        ## cardinality = 0..1
+        ###Must match /path/file.lua
+        effectfile = scalar
+
+        ## cardinality = 0..1
+        ###Set transparent pixels as transparent to cursor
+        transparencecheck = bool
+
+        ## cardinality = 0..1
+        ### Sound when clicked
+        clicksound = <sound>
+
+        ## cardinality = 0..1
+        ###Number of frames in the strip
+        noofframes = int
+
+        ## cardinality = 0..1
+        ###Animation block
+        animation = {
+            ### Path to animation mask file
+            animationmaskfile = filepath
+            ### Path to texture file
+            animationtexturefile = filepath
+            ###Animation rotation  (degrees)
+            animationrotation = float
+            ###Loop animation
+            animationlooping = bool
+            ###Animation time
+            animationtime = float
+            ###Animation delay
+            animationdelay = float
+            ###Animation blend mode
+            animationblendmode = enum[animationblendmode]
+            ###Animation type
+            animationtype = enum[animationtype]
+            ###Animation rotation offset
+            animationrotationoffset = single_alias_right[x_y_float]
+            ###Animation texture scale
+            animationtexturescale = single_alias_right[x_y_float]
+            ###Animation frames
+            animationframes = {
+                ###cardinality = 1..inf
+                int[1..inf]
+            }
+        }
+
+        ## cardinality = 0..1
+        ###Default animation time
+        defaultanimationtime = float
+
+        ## cardinality = 0..1
+        norefcount = bool
+    }
+    subtype[quadtexturesprite] = {
+        ###Name
+        name = scalar
+
+        ## cardinality = 0..1
+        ###Load type
+        loadtype = enum[load_type]
+
+        ## cardinality = 0..1
+        ### Transparent to cursor
+        alwaystransparent = bool
+
+        ## cardinality = 0..1
+        ###Only for hardcoded strips
+        framedirectiony = bool
+
+        ###Path to mask texture file
+        masking_texture = filepath
+
+        ###Enable legacy lazy load
+        legacy_lazy_load = bool
+
+        ###Path to alpha mask file
+        alphamaskfile = filepath
+
+        ### Path to texture file
+        ## cardinality = 1..1
+        texturefile = filepath
+
+        ###Hardcoded strips only - frames per row
+        overlay_frames_per_row = int
+
+        ###Hardcoded strips only - overlay rows
+        overlay_rows = int
+
+        ###Allow low resolution
+        can_be_lowres = bool
+
+        ## cardinality = 0..1
+        ###Must match /path/file.lua
+        effectfile = scalar
+
+        ## cardinality = 0..1
+        ###Set transparent pixels as transparent to cursor
+        transparencecheck = bool
+
+        ## cardinality = 0..1
+        ### Sound when clicked
+        clicksound = <sound>
+
+        ## cardinality = 0..1
+        ###Number of frames in the strip
+        noofframes = int
+
+        ## cardinality = 0..1
+        ###Animation block
+        animation = {
+            ### Path to animation mask file
+            animationmaskfile = filepath
+            ### Path to texture file
+            animationtexturefile = filepath
+            ###Animation rotation  (degrees)
+            animationrotation = float
+            ###Loop animation
+            animationlooping = bool
+            ###Animation time
+            animationtime = float
+            ###Animation delay
+            animationdelay = float
+            ###Animation blend mode
+            animationblendmode = enum[animationblendmode]
+            ###Animation type
+            animationtype = enum[animationtype]
+            ###Animation rotation offset
+            animationrotationoffset = single_alias_right[x_y_float]
+            ###Animation texture scale
+            animationtexturescale = single_alias_right[x_y_float]
+            ###Animation frames
+            animationframes = {
+                ###cardinality = 1..inf
+                int[1..inf]
+            }
+        }
+
+        ## cardinality = 0..1
+        ###Default animation time
+        defaultanimationtime = float
+
+        ## cardinality = 0..1
+        norefcount = bool
+    }
+    subtype[maskedshieldtype] = {
+        ###Name
+        name = scalar
+
+        ## cardinality = 0..1
+        ###Load type
+        loadtype = enum[load_type]
+
+        ## cardinality = 0..1
+        ### Transparent to cursor
+        alwaystransparent = bool
+
+        ## cardinality = 0..1
+        ###Only for hardcoded strips
+        framedirectiony = bool
+
+        ###Path to mask texture file
+        masking_texture = filepath
+
+        ###Enable legacy lazy load
+        legacy_lazy_load = bool
+
+        ###Path to alpha mask file
+        alphamaskfile = filepath
+
+        ### Path to texture file
+        ## cardinality = 1..1
+        texturefile = filepath
+
+        ###Hardcoded strips only - frames per row
+        overlay_frames_per_row = int
+
+        ###Hardcoded strips only - overlay rows
+        overlay_rows = int
+
+        ###Allow low resolution
+        can_be_lowres = bool
+
+        ## cardinality = 0..1
+        ###Must match /path/file.lua
+        effectfile = scalar
+
+        ## cardinality = 0..1
+        ###Set transparent pixels as transparent to cursor
+        transparencecheck = bool
+
+        ## cardinality = 0..1
+        ### Sound when clicked
+        clicksound = <sound>
+
+        ## cardinality = 0..1
+        ###Number of frames in the strip
+        noofframes = int
+
+        ## cardinality = 0..1
+        ###Animation block
+        animation = {
+            ### Path to animation mask file
+            animationmaskfile = filepath
+            ### Path to texture file
+            animationtexturefile = filepath
+            ###Animation rotation  (degrees)
+            animationrotation = float
+            ###Loop animation
+            animationlooping = bool
+            ###Animation time
+            animationtime = float
+            ###Animation delay
+            animationdelay = float
+            ###Animation blend mode
+            animationblendmode = enum[animationblendmode]
+            ###Animation type
+            animationtype = enum[animationtype]
+            ###Animation rotation offset
+            animationrotationoffset = single_alias_right[x_y_float]
+            ###Animation texture scale
+            animationtexturescale = single_alias_right[x_y_float]
+            ###Animation frames
+            animationframes = {
+                ###cardinality = 1..inf
+                int[1..inf]
+            }
+        }
+
+        ## cardinality = 0..1
+        ###Default animation time
+        defaultanimationtime = float
+
+        ## cardinality = 0..1
+        norefcount = bool
+
+        ###Path to texture
+        textureFile1 = filepath
+        ###Path to mask texture
+        textureFile2 = filepath
+        ###Path to overlay texture
+        textureFile3 = filepath
+    }
+}
+
+
+object = {
+    ###pdxparticle
+    subtype[pdxparticle] = {
+        ###Name
+        name = scalar
+
+        #particle asset
+        ###Type
+        type = scalar
+    }
+    ###pdxmesh
+    subtype[pdxmesh] = {
+        ###Name
+        name = scalar
+
+        ## cardinality = 0..inf
+        ###Animation
+        animation = {
+            id = scalar
+            type = scalar
+        }
+
+        ###Path to file
+        file = filepath
+
+        ## cardinality = 0..1
+        ###Define mesh settings
+        meshsettings = {
+            ###Mesh name
+            name = scalar
+            ###Mesh index
+            index = int
+            ###Path to diffuse texture
+            texture_diffuse = filepath
+            ###Path to normal texture
+            texture_normal = filepath
+            ###Path to specular texture
+            texture_specular = "nospec.dds"
+            texture_specular = filepath
+            ###Name of shader
+            shader = "PdxMeshStandard"
+            shader = scalar
+            ###Path to shader file
+            shader_file = filepath
+        }
+
+        ## cardinality = 0..1
+
+        ###Scale size
+        scale = float
+
+        ## cardinality = 0..1
+        ###Cull distance
+        cull_distance = scalar
+    }
+    subtype[arrowtype] = {
+        ###Name
+        name = scalar
+
+        ###Path to diffuse texture
+        texture = filepath
+
+        ###Path to normal texture
+        normal = filepath
+
+        ###Path to specular texture
+        specular = filepath
+
+        ### Path to shader file
+        effect = filepath
+    }
+    subtype[animatedmaptext] = {
+        ###Name
+        name = scalar
+
+        ## cardinality = 0..1
+        ###Speed
+        speed = float
+
+        ###Textblock
+        textblock = {
+            ###String to display (will be replaced in-game)
+            text = scalar
+
+            ###Text color
+            color = colour_field
+
+            ###Font
+            font = <bitmapfonts.bitmapfont>
+
+            ###Position
+            position = single_alias_right[x_y_int]
+
+            ###Size
+            size = single_alias_right[x_y_int]
+
+            ## cardinality = 0..1
+            ###Text format
+            format = enum[format]
+
+            ## cardinality = 0..1
+            ###Cull distance
+            cull_distance = scalar
+        }
+    }
+    subtype[traderoutetype] = {
+        ###Name
+        name = "traderoute"
+        ### Path to texture file
+        textureFile = "gfx//mapitems//trade_route_arrow.dds"
+        ### Path to normal texture file
+        textureFile2 = "gfx//mapitems//trade_route_arrow_normal.dds"
+        ### Path to terrain texture file
+        textureFile3 = "gfx//mapitems//trade_route_arrow_terrain.dds";
+        ### Path to shader file
+        effect = filepath
+        ###Cull distance
+        cull_distance = 10000
+    }
+}
+
+
+bitmapfonts = {
+    subtype[bitmapfont] = {
+        ###Name
+        name = scalar
+        ###Path to .fnt and .dds files (without extension). Example: "gfx/fonts/Arial12"
+        ## cardinality = 1..1
+        path = filepath[,.fnt]
+        ###Path to .fnt and .dds files (without extension). Example: "gfx/fonts/Arial12"
+        ## cardinality = 1..1
+        path = filepath[,.dds]
+    
+        ## cardinality = 1..1
+        ###Hexadecimal ARGB 0xff000000
+        color = scalar
+        ## cardinality = 0..1
+        ###Hexadecimal ARGB 0xff000000
+        border_color = scalar
+        ## cardinality = 0..1
+        ###Color code overrides
+        textcolors = {
+            ## cardinality = 1..inf
+            enum[text_colour_codes] = {
+                ##cardinality = 3..3
+                int[0..255]
+            }
+        }
+    }
+    subtype[textcolors] = {
+        ###Color code definitions
+        ## cardinality = 1..inf
+        enum[text_colour_codes] = {
+            ##cardinality = 3..3
+            int[0..255]
+        }
+    }
+}
+
+
+
+

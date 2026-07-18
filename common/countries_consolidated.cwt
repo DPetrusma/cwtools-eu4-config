@@ -94,8 +94,10 @@ country_file = {
 	
 	## cardinality = 0..1
 	revolutionary_colors = {
+		# was int[0..16]
+		#Anbennar has defined 132. common\custom_country_colors\00_custom_country_colors.txt
 		## cardinality = 3..3
-		int[0..16]
+		int[0..132]
 	}
 
 	#usually needed but the "specials" survive without
@@ -107,7 +109,7 @@ country_file = {
 	#usually needed but the "specials" survive without
 	## severity = warning
 	historical_units = {
-		## cardinality = 1..inf
+		## cardinality = 0..inf
 		<unit_type>
 	}
 	monarch_names = {

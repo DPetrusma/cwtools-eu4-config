@@ -65,6 +65,16 @@ enums = {
 		po_subjugate_tributary_state
 		po_force_out_colonizers
 		po_guaranteed_join_empire
+		po_become_protectorate
+		po_enforce_fleet_basing_rights
+		po_enforce_military_access
+		po_nodemand
+		po_dismantle_forts
+		po_give_up_claim
+		po_war_reparations
+		po_concede_colonial_region
+		po_end_rivalry
+		po_pillage_capital_state
 	}
 	
 	enum[wargoal_types] = {
@@ -269,6 +279,8 @@ wargoal_type = {
 		## cardinality = 0..1
 		###Multiplied with the cost of the peace options in the peace treaty.
 		peace_cost_factor = float
+		## cardinality = 0..1
+		peace_cost_factor_non_allowed_treaty = float
 
 		## cardinality = 0..1
 		## replace_scope = { root = country this = province from = country }

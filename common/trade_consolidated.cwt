@@ -74,10 +74,7 @@ types = {
 
 
 trade_good = {
-	color = {
-		## cardinality = 3..3
-		float[0.0..1.0]
-	}
+	color = colour_field
 	
 	## cardinality = 0..1
 	is_valuable = yes
@@ -114,10 +111,7 @@ trade_good = {
 
 
 trade_company = {
-	color = {
-		## cardinality = 3..3
-		int[0..255
-	}
+	color = colour_field
 	
 	provinces = {
 		## cardinality = 1..inf

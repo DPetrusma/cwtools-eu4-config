@@ -1,0 +1,17 @@
+types = {
+    ## type_key_filter = music
+    type[music] = {
+		path = "game/music"
+        name_field = "name"
+		path_extension = .asset
+    }
+}
+
+music = {
+    name = scalar
+    file = filepath[music/]
+    ## cardinality = 0..1
+    volume = float
+    ## cardinality = 0..1
+    always_load = bool
+}

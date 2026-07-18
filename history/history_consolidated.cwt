@@ -75,7 +75,7 @@ advisor_id = {
 	date = date_field
 	death_date = date_field
 	## cardinality = 0..1
-	female = yes
+	female = bool
 }
 
 
@@ -247,9 +247,9 @@ province_history = {
 			## cardinality = 0..1
 			native_size = int
 			## cardinality = 0..1
-			native_ferocity = float[0..10]
+			native_ferocity = float[0..20]
 			## cardinality = 0..1
-			native_hostileness = float[0..10]
+			native_hostileness = float[0..20]
 			
 			## cardinality = 0..1
 			tribal_owner = enum[country_tags]
@@ -429,15 +429,18 @@ country_history = {
 				birth_date = date_field
 				## cardinality = 0..1
 				death_date = date_field
+				## cardinality = 0..1
 				adm = int
+				## cardinality = 0..1
 				dip = int
+				## cardinality = 0..1
 				mil = int
 				## cardinality = 0..1
 				regent = bool
 				## cardinality = 0..1
 				claim = int[0..100]
 				## cardinality = 0..1
-				female = yes
+				female = bool
 				## cardinality = 0..1
 				culture = <culture>
 				## cardinality = 0..1
@@ -458,7 +461,7 @@ country_history = {
 					## cardinality = 0..1
 					personality = <leader_personality>
 					## cardinality = 0..1
-					female = yes
+					female = bool
 				}
 			}
 			## cardinality = 0..1
@@ -469,9 +472,12 @@ country_history = {
 				## cardinality = 0..1
 				regent = bool
 				## cardinality = 0..1
-				female = yes
+				female = bool
+				## cardinality = 0..1
 				adm = int
+				## cardinality = 0..1
 				dip = int
+				## cardinality = 0..1
 				mil = int
 				## cardinality = 0..1
 				dynasty = localisation_synced #value_set[dynasty_name]
@@ -491,13 +497,16 @@ country_history = {
 				## cardinality = 0..1
 				death_date = date_field
 				## cardinality = 0..1
+				## cardinality = 0..1
 				adm = int
+				## cardinality = 0..1
 				dip = int
+				## cardinality = 0..1
 				mil = int
 				## cardinality = 0..1
 				claim = int[0..100]
 				## cardinality = 0..1
-				female = yes
+				female = bool
 				## cardinality = 0..1
 				culture = <culture>
 				## cardinality = 0..1
@@ -520,7 +529,7 @@ country_history = {
 					## cardinality = 0..1
 					personality = <leader_personality>
 					## cardinality = 0..1
-					female = yes
+					female = bool
 				}
 			}
 			## cardinality = 0..1
@@ -530,14 +539,18 @@ country_history = {
 				###Country of Origin for the consort, defaults to the current country.
 				country_of_origin = enum[country_tags]
 				name = localisation_synced #value_set[consort_name]
+				## cardinality = 0..1
 				dynasty = localisation_synced #value_set[dynasty_name]
 				birth_date = date_field
 				## cardinality = 0..1
 				death_date = date_field
 				## cardinality = 0..1
 				female = bool
+				## cardinality = 0..1
 				adm = int
+				## cardinality = 0..1
 				dip = int
+				## cardinality = 0..1
 				mil = int
 				## cardinality = 0..1
 				culture = <culture>
@@ -546,7 +559,9 @@ country_history = {
 
 				## cardinality = 0..1
 				leader = {
+					## cardinality = 0..1
 					name = localisation_synced #value_set[leader_name]
+					## cardinality = 0..1
 					type = enum[military_leader_types]
 					fire = int
 					shock = int
@@ -557,7 +572,7 @@ country_history = {
 					## cardinality = 0..1
 					personality = <leader_personality>
 					## cardinality = 0..1
-					female = yes
+					female = bool
 				}
 			}
 			## cardinality = 0..inf
@@ -575,7 +590,7 @@ country_history = {
 				## cardinality = 0..1
 				personality = <leader_personality>
 				## cardinality = 0..1
-				female = yes
+				female = bool
 			}
 
 			alias_name[effect] = alias_match_left[effect]

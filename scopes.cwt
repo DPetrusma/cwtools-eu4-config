@@ -43,4 +43,7 @@ scopes = {
 	"Trade Company" = {
 		aliases = { trade_company }
     }
+    Dynasty = {
+        aliases = { dynasty }
+    }
 }

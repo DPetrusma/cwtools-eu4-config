@@ -7,6 +7,14 @@ types = {
 	type[dlc_info] = {
 		path = "game/dlc_metadata/dlc_info"
 		skip_root_key = dlcs
+		localisation = {
+			## required
+			tooltip = "DLC_$_TOOLTIP_INSTANT"
+			## required
+			text = "LANDING_$_TEXT"
+			## required
+			flavor_text = "LANDING_$_FLAVOR_TEXT"
+		}
 	}
 	type[dlc_recommendation] = {
 		path = "game/dlc_metadata/dlc_recommendations"
@@ -53,7 +61,7 @@ dlc_info = {
 
 dlc_recommendation = {
 	## cardinality = 0..inf
-	enum[DLCNUM] = {
+	<dlc_info> = {
 		## cardinality = 0..inf
 		reason = {
 			tooltip_desc = localisation

@@ -1,5 +1,5 @@
 localisation_commands = {
-	GetAdjective = country
+	GetAdjective = { country province }
 	GetAdjectiveCap = country
 	GetAdm = monarch
 	GetAreaName = province
@@ -77,4 +77,83 @@ localisation_commands = {
 	GetGhilmanName = country
 	OriginalReligion = province
 	NativeCulture = province
+}
+
+localisation_links = {
+	Capital = {
+		input_scopes = { country }
+		output_scope = { province }
+	}
+	Monarch = {
+		input_scopes = { country }
+		output_scope = { monarch }
+	}
+	Heir = {
+		input_scopes = { country }
+		output_scope = { heir }
+	}
+	Consort = {
+		input_scopes = { country }
+		output_scope = { consort }
+	}
+	Adm_Advisor = {
+		input_scopes = { country }
+		output_scope = { advisor }
+	}
+	Dip_Advisor = {
+		input_scopes = { country }
+		output_scope = { advisor }
+	}
+	Mil_Advisor = {
+		input_scopes = { country }
+		output_scope = { advisor }
+	}
+	Culture = {
+		input_scopes = { country province monarch monarch heir consort }
+		output_scope = { culture }
+	}
+	Religion = {
+		input_scopes = { country province }
+		output_scope = { religion }
+	}
+	ColonialParent = {
+		input_scopes = { country }
+		output_scope = { country }
+	}
+	SecondaryReligion = {
+		input_scopes = { country }
+		output_scope = { religion }
+	}
+	Overlord = {
+		input_scopes = { country }
+		output_scope = { country }
+	}
+	Owner = {
+		input_scopes = { province }
+		output_scope = { country }
+	}
+	NativeCulture = {
+		input_scopes = { country }
+		output_scope = { culture }
+	}
+	OriginalReligion = {
+		input_scopes = { province }
+		output_scope = { religion }
+	}
+	TradeCompany = {
+		input_scopes = { province }
+		output_scope = { trade_company }
+	}
+	Dynasty = {
+		input_scopes = { monarch heir consort }
+		output_scope = { dynasty }
+	}
+	Leader = {
+		input_scopes = { unit }
+		output_scope = { leader }
+	}
+	Location = {
+		input_scopes = { unit }
+		output_scope = { province }
+	}
 }

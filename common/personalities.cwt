@@ -113,7 +113,7 @@ ruler_personality = {
 	nation_designer_cost = int
 
 	## cardinality = 0..1
-	immortal = 1
+	immortal = int[0..1]
 
 	## cardinality = 0..1
 	###Makes nation_designer_cost not scale with age etc.

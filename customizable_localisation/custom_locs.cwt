@@ -20,7 +20,7 @@ defined_text = {
 
 	## cardinality = 0..1
 	###Appears to default to yes.
-	random = no
+	random = bool
 
 	## cardinality = 1..inf
 	text = {

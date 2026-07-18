@@ -14,11 +14,13 @@ diplomatic_action = {
 		tooltip = localisation
 
 		## replace_scope = { this = country root = country from = country }
+		## cardinality = 0..1
 		###Determines if the trigger is applicable or not. ROOT = actor, FROM = target
 		potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## replace_scope = { this = country root = country from = country }
+		## cardinality = 0..1
 		###Determines if the action is valid or not. ROOT = actor, FROM = target
 		allow = {
 			alias_name[trigger] = alias_match_left[trigger]

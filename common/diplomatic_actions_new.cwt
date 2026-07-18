@@ -71,6 +71,7 @@ new_diplomatic_action = {
 	###This works similarly to variable_arithmetic_trigger, but does not support triggers generally. Instead, "limit" will be evaluated first and the rest ignored if it isn't passed.
 	ai_acceptance = {
 		## cardinality = 1..inf
+		## severity = warning
 		## replace_scope = { this = country root = country from = country }
 		add_entry = {
 			name = localisation
@@ -98,6 +99,11 @@ new_diplomatic_action = {
 			set_variable = {
 				ai_value = float
 			}
+			## cardinality = 0..inf
+			set_variable = {
+				which = ai_value
+				which = value_set[variable]
+			}
 
 			## cardinality = 0..inf
 			multiply_variable = {
@@ -107,6 +113,11 @@ new_diplomatic_action = {
 			## cardinality = 0..inf
 			multiply_variable = {
 				ai_value = float
+			}
+			## cardinality = 0..inf
+			multiply_variable = {
+				which = ai_value
+				which = value_set[variable]
 			}
 			
 			## cardinality = 0..inf
@@ -118,6 +129,11 @@ new_diplomatic_action = {
 			divide_variable = {
 				ai_value = float
 			}
+			## cardinality = 0..inf
+			divide_variable = {
+				which = ai_value
+				which = value_set[variable]
+			}
 
 			## cardinality = 0..inf
 			subtract_variable = {
@@ -128,6 +144,11 @@ new_diplomatic_action = {
 			subtract_variable = {
 				ai_value = float
 			}
+			## cardinality = 0..inf
+			subtract_variable = {
+				which = ai_value
+				which = value_set[variable]
+			}
 
 			## cardinality = 0..inf
 			change_variable = {
@@ -137,26 +158,41 @@ new_diplomatic_action = {
 			## cardinality = 0..inf
 			change_variable = {
 				ai_value = float
+			}
+			## cardinality = 0..inf
+			change_variable = {
+				which = ai_value
+				which = value_set[variable]
 			}
 
 			## cardinality = 0..inf
 			check_variable = {
-				cardinality = 2..2
 				which = ai_value
-				cardinality = 2..2
+				value = float
+			}
+			## cardinality = 0..inf
+			check_variable = {
+				which = ai_value
 				which = value[variable]
 			}
 			## cardinality = 0..inf
 			check_variable = {
 				ai_value = float
 			}
-			
+
 			## cardinality = 0..inf
 			is_variable_equal = {
-				cardinality = 2..2
 				which = ai_value
-				cardinality = 2..2
+				value = float
+			}
+			## cardinality = 0..inf
+			is_variable_equal = {
+				which = ai_value
 				which = value[variable]
+			}
+			## cardinality = 0..inf
+			is_variable_equal = {
+				ai_value = float
 			}
 		}
 	}

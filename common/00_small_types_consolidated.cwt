@@ -10,10 +10,13 @@ types = {
 			## required
 			influence_modifier = "$_influence"
 			#Old Chinese factions lack this and I can't see what it does
-#			## required
-#			support = "support_$_title"
-#			## required
-#			support_desc = "support_$_desc"
+			#			## required
+			#			support = "support_$_title"
+			#			## required
+			#			support_desc = "support_$_desc"
+		}
+		modifiers = {
+			"$_influence" = country
 		}
 	}
 	type[fervor] = {
@@ -174,6 +177,7 @@ achievement = {
 
 faction = {
 	monarch_power = enum[power_categories]
+	## cardinality = 0..1
 	always = yes
 
 	## cardinality = 0..1
@@ -427,7 +431,7 @@ edict = {
 
 	color = {
 		## cardinality = 3..3
-		int[0..255
+		int[0..255]
 	}
 
 	## replace_scope = { root = province this = province }
@@ -477,6 +481,12 @@ power_projection = {
 		min = float
 	}
 
+	## cardinality = 0..1
+	min = float
+	## cardinality = 0..1
+	max = float
+	## cardinality = 0..1
+	decay = float
 	## cardinality = 0..1
 	yearly_decay = float
 }

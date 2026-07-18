@@ -114,6 +114,10 @@ imperial_reform = {
 		## cardinality = 0..1
 		disabled_by = <imperial_reform.china>
 		## cardinality = 0..1
+		potential = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+		## cardinality = 0..1
 		###Whether the reform can be enacted
 		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
@@ -146,5 +150,12 @@ imperial_reform = {
 	## replace_scope = { this = country root = country }
 	off_effect = {
 		alias_name[effect] = alias_match_left[effect]
+	}
+	
+	## cardinality = 0..1
+	ai_weight = {
+		factor = float
+		## cardinality = 0..inf
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 }

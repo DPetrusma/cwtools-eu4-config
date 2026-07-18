@@ -34,6 +34,9 @@ types = {
 			## required
 			name = "$"
 		}
+		modifiers = {
+			"$" = country
+		}
 	}
 	## type_key_filter = interaction
 	type[estate_interaction] = {
@@ -105,7 +108,7 @@ estate = {
 
 
 
-	base_influence = int
+	base_influence = float
 
 	## cardinality = 0..inf
 	influence_modifier = {
@@ -114,7 +117,7 @@ estate = {
 		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		influence = int[-100..100]
+		influence = float[-100..100]
 	}
 
 	## cardinality = 0..inf
@@ -124,7 +127,7 @@ estate = {
 		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		loyalty = int[-100..100]
+		loyalty = float[-100..100]
 	}
 
 	## cardinality = 0..inf
@@ -197,6 +200,11 @@ estate_privilege = {
 	###Conditions for whether it is possible for the country to revoke this privilege
 	can_revoke = bool
 	## cardinality = 0..1
+	###Conditions for whether the country can revoke the privilege
+	can_revoke = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
 	###Conditions for whether the country is allowed to select the privilege (with conditions for why not displayed)
 	can_select = {
 		alias_name[trigger] = alias_match_left[trigger]
@@ -212,11 +220,7 @@ estate_privilege = {
 	on_granted_province = {
 		alias_name[effect] = alias_match_left[effect]
 	}
-	## cardinality = 0..1
-	###Conditions for whether the country can revoke the privilege
-	can_revoke = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+
 	## cardinality = 0..1
 	###Effects executed upon the privilege being revoked by the country
 	on_revoked = {
@@ -325,6 +329,7 @@ estate_privilege = {
 	on_cooldown_expires = {
 		alias_name[effect] = alias_match_left[effect]
 	}
+	## cardinality = 0..1
 	ai_will_do = {
 		factor = float
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -409,6 +414,15 @@ estate_agenda = {
 	}
 }
 
+estate_modifier = {
+	type = enum[estate_modifier_types]
+	key = scalar
+	## cardinality = 0..1
+	trigger = {
+		## cardinality = 0..inf
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+}
 
 estate_interaction = {
 	key = localisation
@@ -439,5 +453,13 @@ estate_crown_land_bonus = {
 	## push_scope = country
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
+	}
+}
+
+enums = {
+	enum[estate_modifier_types] = {
+		loyalty
+		influence
+		privileges
 	}
 }

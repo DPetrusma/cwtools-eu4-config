@@ -472,6 +472,11 @@ enums = {
 		naval_morale
 		maya_reforms_passed
 		num_of_age_rewards
+		local_production_efficiency
+		trade_goods_size
+		local_has_samurai
+		local_build_time
+		local_development_cost
 	}
 	enum[native_policies] = {
 		native_policy_coexist

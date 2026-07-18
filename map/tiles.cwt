@@ -60,6 +60,7 @@ rnw_tiles = {
 	## cardinality = 0..1
 	num_land_provinces = int
 	
+	###Size
 	size = {
 		## cardinality = 2..2
 		int[1..100]

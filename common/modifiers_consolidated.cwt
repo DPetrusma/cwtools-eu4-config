@@ -12,6 +12,7 @@ types = {
 		localisation = {
 			subtype[not_flag] = {
 				name = "$"
+				## optional
 				description = "desc_$"
 			}
 		}
@@ -35,9 +36,14 @@ types = {
 	type[province_triggered_modifier] = {
 		path = "game/common/province_triggered_modifiers"
 		
-		localisation = {
-			name = "$"
-			description = "desc_$"
+		subtype[hidden] = {
+			hidden = yes
+		}
+		subtype[!hidden] = {
+			localisation = {
+				name = "$"
+				description = "desc_$"
+			}
 		}
 	}
 	#todo: Don't think you can add to them. Included for completeness
@@ -126,7 +132,7 @@ province_triggered_modifier = {
 
 	## cardinality = 0..1
 	###Province modifier will be hidden from view even while active
-	hidden = yes
+	hidden = bool
 }
 
 timed_modifier = {

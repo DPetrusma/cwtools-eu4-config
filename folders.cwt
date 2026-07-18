@@ -110,6 +110,7 @@ sound
 tutorial
 gfx
 interface
+interface/assets
 localisation
 dlc_metadata
 dlc_metadata/dlc_info

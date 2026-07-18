@@ -110,9 +110,6 @@ rebel_type = {
 	## cardinality = 0..1
 	dynasty = bool
 
-	## cardinality = 0..1
-	handle_action_change_culture = bool
-
 	resilient = bool
 	reinforcing = bool
 	general = bool
@@ -127,12 +124,16 @@ rebel_type = {
 	
 	morale = float
 
+	## cardinality = 0..1
+	handle_action_change_culture = bool
+	## cardinality = 0..1
 	handle_action_negotiate = bool
+	## cardinality = 0..1
 	handle_action_stability = bool
 	## cardinality = 0..1
 	handle_action_build_core = bool
 	## cardinality = 0..1
-	handle_action_send_missionary = bool		
+	handle_action_send_missionary = bool
 	
 	##replace_scope = { this = province root = province }
 	###The rebel type with the highest modifier for this province gets picked

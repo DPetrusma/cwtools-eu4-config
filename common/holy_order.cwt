@@ -38,6 +38,7 @@ holy_order = {
         alias_name[modifier] = alias_match_left[modifier]
     }
 	## replace_scope = { this = province root = province }
+	## cardinality = 0..1
     ai_priority = {
         factor = float
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

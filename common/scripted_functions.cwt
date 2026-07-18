@@ -3,6 +3,92 @@ types = {
 	type[scripted_function] = {
 		path = "game/common/scripted_functions"
 	}
+    ##type_key_filter = can_join_hre_league
+    subtype[can_join_hre_league] = { }
+    ##type_key_filter = can_leave_hre_league
+    subtype[can_leave_hre_league] = { }
+    ##type_key_filter = can_harsh_treatment
+    subtype[can_harsh_treatment] = { }
+    ##type_key_filter = can_reduce_war_exhaustion
+    subtype[can_reduce_war_exhaustion] = { }
+    ##type_key_filter = can_reduce_inflation
+    subtype[can_reduce_inflation] = { }
+    ##type_key_filter = can_declare_bankruptcy
+    subtype[can_declare_bankruptcy] = { }
+    ##type_key_filter = can_release_colonial_nation
+    subtype[can_release_colonial_nation] = { }
+    ##type_key_filter = can_claim_defender_of_faith
+    subtype[can_claim_defender_of_faith] = { }
+    ##type_key_filter = can_change_national_focus
+    subtype[can_change_national_focus] = { }
+    ##type_key_filter = can_increase_stability
+    subtype[can_increase_stability] = { }
+    ##type_key_filter = can_add_province_to_hre
+    subtype[can_add_province_to_hre] = { }
+    ##type_key_filter = can_remove_province_from_hre
+    subtype[can_remove_province_from_hre] = { }
+    ##type_key_filter = can_increase_autonomy
+    subtype[can_increase_autonomy] = { }
+    ##type_key_filter = can_decrease_autonomy
+    subtype[can_decrease_autonomy] = { }
+    ##type_key_filter = can_make_core
+    subtype[can_make_core] = { }
+    ##type_key_filter = can_make_state
+    subtype[can_make_state] = { }
+    ##type_key_filter = can_abandon_state
+    subtype[can_abandon_state] = { }
+    ##type_key_filter = can_improve_tax
+    subtype[can_improve_tax] = { }
+    ##type_key_filter = can_improve_production
+    subtype[can_improve_production] = { }
+    ##type_key_filter = can_improve_manpower
+    subtype[can_improve_manpower] = { }
+    ##type_key_filter = can_exploit_tax
+    subtype[can_exploit_tax] = { }
+    ##type_key_filter = can_exploit_production
+    subtype[can_exploit_production] = { }
+    ##type_key_filter = can_exploit_manpower
+    subtype[can_exploit_manpower] = { }
+    ##type_key_filter = can_change_culture
+    subtype[can_change_culture] = { }
+    ##type_key_filter = can_move_capital
+    subtype[can_move_capital] = { }
+    ##type_key_filter = can_move_trade_port
+    subtype[can_move_trade_port] = { }
+    ##type_key_filter = can_order_assault
+    subtype[can_order_assault] = { }
+    ##type_key_filter = can_order_force_march
+    subtype[can_order_force_march] = { }
+    ##type_key_filter = can_scorch_earth
+    subtype[can_scorch_earth] = { }
+    ##type_key_filter = can_garrison_sorties
+    subtype[can_garrison_sorties] = { }
+    ##type_key_filter = can_seize_colony
+    subtype[can_seize_colony] = { }
+    ##type_key_filter = can_burn_colony
+    subtype[can_burn_colony] = { }
+    ##type_key_filter = can_colonize_province
+    subtype[can_colonize_province] = { }
+    ##type_key_filter = can_colonize_province_siberian_frontier
+    subtype[can_colonize_province_siberian_frontier] = { }
+    ##type_key_filter = can_add_seat_in_parliament
+    subtype[can_add_seat_in_parliament] = { }
+    ##type_key_filter = can_remove_seat_in_parliament
+    subtype[can_remove_seat_in_parliament] = { }
+    ##type_key_filter = can_add_estate
+    subtype[can_add_estate] = { }
+    ##type_key_filter = can_expel_minority_from
+    subtype[can_expel_minority_from] = { }
+    ##type_key_filter = can_have_colonial_nations
+    subtype[can_have_colonial_nations] = { }
+    ##type_key_filter = is_possible_hre_province
+    subtype[is_possible_hre_province] = { }
+    ##type_key_filter = will_demand_annexation
+    subtype[will_demand_annexation] = { }
+    ##type_key_filter = can_join_hre
+    subtype[can_join_hre] = { }
+    ##type_key_filter = can_leave_hre
+    subtype[can_leave_hre] = { }
 }
 
 scripted_function = {
@@ -25,4 +111,98 @@ scripted_function = {
 		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
+
+
+	## replace_scope = { root = country this = country }
+	subtype[can_join_hre_league] = { }
+	## replace_scope = { root = country this = country }
+	subtype[can_leave_hre_league] = { }
+	## replace_scope = { root = country this = country }
+	subtype[can_harsh_treatment] = { }
+	## replace_scope = { root = country this = country }
+	subtype[can_reduce_war_exhaustion] = { }
+	## replace_scope = { root = country this = country }
+	subtype[can_reduce_inflation] = { }
+	## replace_scope = { root = country this = country }
+	subtype[can_declare_bankruptcy] = { }
+	## replace_scope = { root = country this = country }
+	subtype[can_release_colonial_nation] = { }
+	## replace_scope = { root = country this = country }
+	subtype[can_claim_defender_of_faith] = { }
+	## replace_scope = { root = country this = country }
+	subtype[can_change_national_focus] = { }
+	## replace_scope = { root = country this = country }
+	subtype[can_increase_stability] = { }
+	
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_add_province_to_hre] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_remove_province_from_hre] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_increase_autonomy] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_decrease_autonomy] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_make_core] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_make_state] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_abandon_state] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_improve_tax] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_improve_production] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_improve_manpower] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_exploit_tax] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_exploit_production] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_exploit_manpower] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_change_culture] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_move_capital] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_move_trade_port] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_order_assault] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_order_force_march] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_scorch_earth] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_garrison_sorties] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_seize_colony] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_burn_colony] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_colonize_province] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_colonize_province_siberian_frontier] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_add_seat_in_parliament] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_remove_seat_in_parliament] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_add_estate] = { }
+
+	# replace_scope = { root = province this = province from = country }
+	## replace_scope = { root = province this = province from = --- }
+	subtype[can_expel_minority_from] = { }
+	## replace_scope = { root = province this = province from = country }
+	subtype[can_have_colonial_nations] = { }
+
+	## replace_scope = { root = province this = province from = country }
+	subtype[is_possible_hre_province] = { }
+
+	## replace_scope = { root = emperor this = emperor }
+	subtype[will_demand_annexation] = { }
+	## replace_scope = { root = country this = country }
+	subtype[can_join_hre] = { }
+	## replace_scope = { root = country this = country }
+	subtype[can_leave_hre] = { }
+	
 }

@@ -38,9 +38,41 @@ event = {
 	subtype[hidden] = {
 		title = scalar
 		desc = scalar
+		## cardinality = 0..inf
+		desc = {
+			trigger = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			desc = localisation
+		}
+
 		picture = <sprite>
 		picture = enum[dlc_event_pictures]
 		picture = none
+		picture = {
+			trigger = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			picture = <sprite>
+			picture = enum[dlc_event_pictures]
+			picture = none
+		}
+
+		## cardinality = 0..1
+		## severity = warning
+		goto = <province_id>
+		## cardinality = 0..1
+		## severity = warning
+		goto = value[event_target]
+		## cardinality = 0..1
+		## severity = warning
+		goto = root
+		## cardinality = 0..1
+		## severity = warning
+		goto = from
+		## cardinality = 0..1
+		## severity = warning
+		goto = <estate>
 	}
 
 
@@ -61,19 +93,22 @@ event = {
 		## cardinality = 0..1
 		goto = <estate>
 
-
+		## cardinality = 0..inf
 		desc = {
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
 			desc = localisation
 		}
-		picture = scalar #todo: until such a time as I know how to check this
+		picture = <sprite>
+		picture = enum[dlc_event_pictures]
 		picture = {
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
-			picture = scalar #todo: until such a time as I know how to check this
+			picture = <sprite>
+			picture = enum[dlc_event_pictures]
+			picture = none
 		}
 
 	}
@@ -87,7 +122,8 @@ event = {
 	major = bool
 
 	## cardinality = 0..1
-	###Only displays the event to country validating the trigger
+	## replace_scope = { root = country this = country }
+	###Only displays the event to the human countries validating the trigger
 	major_trigger = { alias_name[trigger] = alias_match_left[trigger] }
 
 	## cardinality = 0..1
@@ -143,6 +179,22 @@ event = {
 		subtype[hidden] = {
 			## cardinality = 0..1
 			name = scalar
+
+			## cardinality = 0..1
+			## severity = warning
+			goto = <province_id>
+			## cardinality = 0..1
+			## severity = warning
+			goto = value[event_target]
+			## cardinality = 0..1
+			## severity = warning
+			goto = root
+			## cardinality = 0..1
+			## severity = warning
+			goto = from
+			## cardinality = 0..1
+			## severity = warning
+			goto = <estate>
 		}
 		subtype[!hidden] = {
 			## severity = warning

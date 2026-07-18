@@ -61,6 +61,13 @@ alias[effect:<province_group.used>] = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	alias_name[effect] = alias_match_left[effect]
+
+	## cardinality = 0..1
+	###Apply effect to random provinces in the province group, use combined with amount
+	type = enum[random_repeating]
+	## cardinality = 0..1
+	###How many provinces to apply the effect, implies 'type = random' unless explicitly set
+	amount = int[1..inf]
 }
 
 ## scope = { country province }
@@ -409,6 +416,12 @@ alias[effect:area] = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	alias_name[effect] = alias_match_left[effect]
+	## cardinality = 0..1
+	###Apply effect to random provinces in the province group, use combined with amount
+	type = enum[random_repeating]
+	## cardinality = 0..1
+	###How many provinces to apply the effect, implies 'type = random' unless explicitly set
+	amount = int[1..inf]
 }
 
 ## scope = province
@@ -420,6 +433,12 @@ alias[effect:province_group] = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	alias_name[effect] = alias_match_left[effect]
+	## cardinality = 0..1
+	###Apply effect to random provinces in the province group, use combined with amount
+	type = enum[random_repeating]
+	## cardinality = 0..1
+	###How many provinces to apply the effect, implies 'type = random' unless explicitly set
+	amount = int[1..inf]
 }
 
 ## scope = province
@@ -431,6 +450,12 @@ alias[effect:region] = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	alias_name[effect] = alias_match_left[effect]
+	## cardinality = 0..1
+	###Apply effect to random provinces in the province group, use combined with amount
+	type = enum[random_repeating]
+	## cardinality = 0..1
+	###How many provinces to apply the effect, implies 'type = random' unless explicitly set
+	amount = int[1..inf]
 }
 
 
@@ -1275,6 +1300,20 @@ alias[trigger:all_owned_province] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
+## scope = country
+## push_scope = province
+###Scopes to all provinces owned by the current scope or its subjects.
+alias[trigger:all_owned_or_subject_province] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scope = country
+## push_scope = province
+###Scopes to all provinces owned by the current scope or its non-tributary subjects.
+alias[trigger:all_owned_or_non_tributary_subject_province] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
 
 ## scope = { country province }
 ## push_scope = province
@@ -1296,6 +1335,13 @@ alias[trigger:all_state_province] = {
 ## push_scope = province
 ###Scopes to all states of the current scope.
 alias[trigger:all_states] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scope = country
+## push_scope = province
+###Scopes to a random state of the current scope.
+alias[trigger:any_state] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
@@ -1404,6 +1450,20 @@ alias[trigger:any_heretic_province] = {
 ## push_scope = province
 ###Scopes to one province owned by the current scope.
 alias[trigger:any_owned_province] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scope = country
+## push_scope = province
+###Scopes to one province owned by the current scope or its subjects.
+alias[trigger:any_owned_or_subject_province] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scope = country
+## push_scope = province
+###Scopes to one province owned by the current scope or its non-tributary subjects.
+alias[trigger:any_owned_or_non_tributary_subject_province] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
@@ -1969,6 +2029,50 @@ alias[effect:random_claimed_province] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
+## scope = country
+## push_scope = province
+###Scopes to every province owned by current scope or subjects.
+alias[effect:every_owned_or_subject_province] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	alias_name[effect] = alias_match_left[effect]
+}
+
+## scope = country
+## push_scope = province
+###Scope to a random province owned by current scope or subjects.
+alias[effect:random_owned_or_subject_province] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	alias_name[effect] = alias_match_left[effect]
+}
+
+## scope = country
+## push_scope = province
+###Scopes to a province owned by current scope or non-tributary subject.
+alias[effect:every_owned_or_non_tributary_subject_province] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	alias_name[effect] = alias_match_left[effect]
+}
+
+## scope = country
+## push_scope = province
+###Scope to a random province owned by current scope or non-tributary subject.
+alias[effect:random_owned_or_non_tributary_subject_province] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	alias_name[effect] = alias_match_left[effect]
+}
+
 ## push_scope = country
 ## scope = country
 ###Scopes to all countries the scoped country is at war with.
@@ -2021,4 +2125,33 @@ alias[effect:random_area_province] = {
 ###Refers to the country (if it exists) that is currently the Papal Controller.
 alias[effect:papal_controller] = {
 	alias_name[effect] = alias_match_left[effect]
+}
+
+#Anbennar
+## scope = { country province }
+## push_scope = trade_node
+###Scopes to all trade nodes in the "trade_node_provinces" province group. Use like a province group.
+alias[effect:trade_node_provinces] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	alias_name[effect] = alias_match_left[effect]
+}
+
+#Anbennar
+## scope = { country province }
+## push_scope = trade_node
+###Scopes to all trade nodes in the "trade_node_provinces" province group. Use like a province group.
+alias[trigger:trade_node_provinces] = {
+	## cardinality = 0..1
+	type = enum[any_all]
+	alias_name[trigger] = alias_match_left[trigger]
+
+	## cardinality = 0..1
+	###Apply effect to random provinces in the province group, use combined with amount
+	type = enum[random_repeating]
+	## cardinality = 0..1
+	###How many provinces to apply the effect, implies 'type = random' unless explicitly set
+	amount = int
 }
