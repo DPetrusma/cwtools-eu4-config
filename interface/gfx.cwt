@@ -170,6 +170,10 @@ sprite = {
         alwaystransparent = bool
 
         ## cardinality = 0..1
+        ### Transparent to cursor
+        allwaystransparent = bool
+
+        ## cardinality = 0..1
         ### Tiling center
         tilingCenter = bool
 
@@ -311,10 +315,15 @@ sprite = {
         ## cardinality = 0..1
         ###Pause on loop
         pause_on_loop = int
+        ## cardinality = 0..1
+        ###Pause on loop
         pause_on_loop = float
         ## cardinality = 0..1
         ### Transparent to cursor
         alwaystransparent = bool
+        ## cardinality = 0..1
+        ### Transparent to cursor
+        allwaystransparent = bool
         ## cardinality = 0..1
         ###Only for hardcoded strips
         framedirectiony = bool
@@ -392,6 +401,10 @@ sprite = {
         ## cardinality = 0..1
         ### Transparent to cursor
         alwaystransparent = bool
+
+        ## cardinality = 0..1
+        ### Transparent to cursor
+        allwaystransparent = bool
 
         ## cardinality = 0..1
         ###Only for hardcoded strips
@@ -485,6 +498,10 @@ sprite = {
         alwaystransparent = bool
 
         ## cardinality = 0..1
+        ### Transparent to cursor
+        allwaystransparent = bool
+
+        ## cardinality = 0..1
         ###Only for hardcoded strips
         framedirectiony = bool
 
@@ -574,6 +591,10 @@ sprite = {
         ## cardinality = 0..1
         ### Transparent to cursor
         alwaystransparent = bool
+
+        ## cardinality = 0..1
+        ### Transparent to cursor
+        allwaystransparent = bool
 
         ## cardinality = 0..1
         ###Only for hardcoded strips

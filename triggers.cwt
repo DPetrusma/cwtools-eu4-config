@@ -23,6 +23,13 @@ alias[trigger:<scripted_trigger>] = {
 	enum[scripted_effect_params] = scope_field
 }
 
+alias[trigger:<scripted_trigger>] = { }
+
+#For cwtools/cwtools repo
+alias[trigger:enum[scripted_effect_params_dollar]] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
 ## scope = country
 ###Returns true if the country has hired an advisor of the specified type which has at least level X.
 alias[trigger:<advisor_type>] = int[1..5]
@@ -642,6 +649,10 @@ alias[trigger:culture] = <province_id>
 ## scope = province
 ###Returns true if the province culture is X, or the same as the specified scope.
 alias[trigger:culture] = enum[country_tags]
+
+## scope = province
+###Returns true if the province culture is X, or the same as the specified scope.
+alias[trigger:culture] = no_culture
 
 ## scope = { country province }
 ###Returns true if the country/province has a culture of the specified culture group or the same culture group as the specified scope.
@@ -3880,6 +3891,10 @@ alias[trigger:province_religion] = <province_id>
 ## scope = { country province }
 ###Returns true if the country/province has religion X. Within province scope religion = secondary returns true if the province religion matches the secondary/syncretic religion of the owner.
 alias[trigger:religion] = secondary
+
+## scope = { country province }
+###Returns true if the country/province has religion X. Within province scope religion = secondary returns true if the province religion matches the secondary/syncretic religion of the owner.
+alias[trigger:religion] = no_religion
 
 ## scope = { country }
 ###Returns true if the country/province has religion X. Within province scope religion = secondary returns true if the province religion matches the secondary/syncretic religion of the owner.

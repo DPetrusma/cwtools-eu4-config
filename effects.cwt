@@ -9,6 +9,12 @@ alias[effect:<scripted_effect>] = {
 	## cardinality = 1..inf
 	enum[scripted_effect_params] = scope_field
 }
+alias[effect:<scripted_effect>] = { }
+
+#For cwtools/cwtools repo
+alias[effect:enum[scripted_effect_params_dollar]] = {
+	alias_name[effect] = alias_match_left[effect]
+}
 
 #Variables
 
