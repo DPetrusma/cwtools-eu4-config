@@ -101,6 +101,7 @@ new_diplomatic_action = {
 			}
 			## cardinality = 0..inf
 			set_variable = {
+				## cardinality = 2..2
 				which = ai_value
 				which = value_set[variable]
 			}
