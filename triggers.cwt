@@ -6076,3 +6076,7 @@ alias[trigger:end_game_tags_blocked] = bool
 
 ## scope = country
 alias[trigger:country_has_center_of_trade_of_level] = int[0..inf]
+
+## scope = country
+###Returns true if the country has any provinces on the continent. Fast trigger.
+alias[trigger:provinces_on_continent] = <continent>
