@@ -930,7 +930,7 @@ alias[modifier:is_cawa_modifier] = bool
 ### Country amount of cawa
 alias[modifier:amount_of_cawa] = float
 
-## scope = country
+## scope = any
 alias[modifier:<estate_modifier>] = float
 
 ## scope = country

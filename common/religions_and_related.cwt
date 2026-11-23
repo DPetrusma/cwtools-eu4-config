@@ -155,10 +155,10 @@ types = {
 
 religion_group = {
 	## cardinality = 0..1
-	defender_of_faith = yes
+	defender_of_faith = bool
 
 	## cardinality = 0..1
-	can_form_personal_unions = yes
+	can_form_personal_unions = bool
 
 	## cardinality = 0..1
 	ai_will_propagate_through_trade = yes
