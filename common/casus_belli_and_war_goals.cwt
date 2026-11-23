@@ -66,15 +66,15 @@ enums = {
 		po_force_out_colonizers
 		po_guaranteed_join_empire
 		po_become_protectorate
+		po_concede_colonial_region
+		po_dismantle_forts
+		po_end_rivalry
 		po_enforce_fleet_basing_rights
 		po_enforce_military_access
-		po_nodemand
-		po_dismantle_forts
 		po_give_up_claim
-		po_war_reparations
-		po_concede_colonial_region
-		po_end_rivalry
+		po_nodemand
 		po_pillage_capital_state
+		po_war_reparations
 	}
 	
 	enum[wargoal_types] = {

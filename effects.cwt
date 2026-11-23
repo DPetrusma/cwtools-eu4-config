@@ -4171,6 +4171,22 @@ alias[effect:set_defender_of_the_faith] = {
 }
 
 ## scope = country
+###Removes the country as defender of the faith.
+alias[effect:remove_defender_of_the_faith] = {
+	## cardinality = 1..1
+	who = scope[country]
+	## cardinality = 1..1
+	who = enum[country_tags]
+
+	## cardinality = 0..1
+	religion = scope[country]
+	## cardinality = 0..1
+	religion = enum[country_tags]
+	## cardinality = 0..1
+	religion = <religion>
+}
+
+## scope = country
 ###Removes the country as defender of their faith. Use religion = <religion> to specify a specific religion.
 alias[effect:set_defender_of_the_faith] = {
 	## cardinality = 1..1
@@ -4785,3 +4801,13 @@ alias[effect:add_active_fervor] = <fervor>
 
 ## scope = country
 alias[effect:remove_active_fervor] = <fervor>
+
+## scope = province
+alias[effect:add_garrison] = int
+
+## scope = province
+###  Adds a latent trade good (usually coal) to the current province scope
+alias[effect:add_latent_trade_goods] = {
+	## cardinality = 0..inf
+	<trade_good>
+}

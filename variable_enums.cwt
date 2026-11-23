@@ -59,6 +59,7 @@ enums = {
 		ruler_religion
 		stability
 		total_development
+		total_own_and_non_tributary_subject_development
 		treasury
 		trigger_value:adm_power
 		trigger_value:always
@@ -91,6 +92,7 @@ enums = {
 		trigger_value:ruler_age
 		trigger_value:tax_income_percentage
 		trigger_value:total_development
+		trigger_value:total_own_and_non_tributary_subject_development
 		trigger_value:trade_income_percentage
 		trigger_value:trade_node_value
 		trigger_value:transports_in_province

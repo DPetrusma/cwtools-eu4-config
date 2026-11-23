@@ -147,7 +147,7 @@ government_mechanic = {
 			min = int
 			## cardinality = 0..1
 			###default power when resetting
-			default = int
+			default = float
 			## cardinality = 0..1
 			###default power when resetting
 			default = float
@@ -221,10 +221,10 @@ government_mechanic = {
 				}
 				## cardinality = 0..1
 				###Default is 0, must be lower or equal to end_value
-				start_value = int
+				start_value = float
 				## cardinality = 0..1
 				###Default is 100, must be bigger or equal to start_value
-				end_value = int
+				end_value = float
 			}
 			## cardinality = 0..1
 			is_good = bool
@@ -249,6 +249,10 @@ government_mechanic = {
 			icon = <sprite>
 			## cardinality = 0..1
 			gui = scalar # TODO: make it a GUI
+			## cardinality = 0..1
+			potential = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
 			## cardinality = 0..1
 			###Must be one of the costs defined in its powers
 			cost_type = <government_mechanic_power>

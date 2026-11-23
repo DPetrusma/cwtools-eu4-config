@@ -511,6 +511,8 @@ types = {
 		subtype[on_expanded_infrastructure_removed] = { }
 		## type_key_filter = on_great_project_constructed
 		subtype[on_great_project_constructed] = { }
+		## type_key_filter = on_great_project_constructed
+		subtype[on_great_project_constructed] = { }
 	}
 }
 on_action = {
@@ -1254,7 +1256,7 @@ on_action = {
             ## cardinality = 0..inf
             <event.country>
         }
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         random_events = {
             ## cardinality = 0..inf
             int = 0

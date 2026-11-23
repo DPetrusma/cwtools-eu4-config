@@ -186,6 +186,14 @@ alias[trigger:<region>] = {
 
 ## push_scope = province
 ###Refers to any superregion found in /Europa Universalis IV/map/superregion.txt
+alias[trigger:<province_group>] = {
+	## cardinality = 0..1
+	type = enum[any_all]
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+## push_scope = province
+###Refers to any superregion found in /Europa Universalis IV/map/superregion.txt
 alias[trigger:<superregion>] = {
 	## cardinality = 0..1
 	type = enum[any_all]
@@ -762,6 +770,28 @@ alias[effect:every_heretic_province] = {
 ## scope = country
 ###Scopes to all provinces the current scope owns.
 alias[effect:every_owned_province] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	alias_name[effect] = alias_match_left[effect]
+}
+
+## push_scope = province
+## scope = country
+###Scopes to all provinces the current scope or their subjects own.
+alias[effect:every_owned_or_subject_province] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	alias_name[effect] = alias_match_left[effect]
+}
+
+## push_scope = province
+## scope = country
+###Scopes to all provinces the current scope or their sovereign subjects own.
+alias[effect:every_owned_or_non_tributary_subject_province] = {
 	## cardinality = 0..1
 	limit = {
 		alias_name[trigger] = alias_match_left[trigger]

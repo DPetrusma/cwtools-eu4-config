@@ -68,6 +68,7 @@ types = {
 
 imperial_reform = {
 	subtype[hre] = {
+		## push_scope = country
 		empire = hre
 		## cardinality = 0..1
 		required_reform = <imperial_reform.hre>
@@ -83,7 +84,6 @@ imperial_reform = {
 		ai_acceptance_decentralize = yes
 		
 		## cardinality = 0..1
-		## push_scope = country
 		all = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
@@ -105,15 +105,22 @@ imperial_reform = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
+		ai_weight = {
+			factor = float
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+		## cardinality = 0..1
 		disables_hre_badboy_points = yes
 	}
 	subtype[china] = {
+		## push_scope = country
 		empire = celestial_empire
 		## cardinality = 0..1
 		required_reform = <imperial_reform.china>
 		## cardinality = 0..1
 		disabled_by = <imperial_reform.china>
 		## cardinality = 0..1
+		###Whether the reform is visible
 		potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}

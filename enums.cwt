@@ -477,6 +477,7 @@ enums = {
 		local_has_samurai
 		local_build_time
 		local_development_cost
+		may_recruit_female_generals
 	}
 	enum[native_policies] = {
 		native_policy_coexist
