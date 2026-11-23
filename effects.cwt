@@ -4247,6 +4247,10 @@ alias[effect:decolonize] = yes
 
 ## scope = province
 ###Decolonizes the scoped province, making it unowned
+alias[effect:decolonize] = THIS
+
+## scope = province
+###Decolonizes the scoped province, making it unowned
 alias[effect:decolonize] = scope[province]
 
 ## scope = { country province }
