@@ -64,6 +64,8 @@ localisation_commands = {
 	GetTribesName = country
 	GetNobilityName = country
 	GetClergyName = country
+	GetMagesName = country
+	GetArtificersName = country
 	GetBurghersName = country
 	GetCachedAgendasFlavorText = country
 	GetParliamentName = country
@@ -83,6 +85,10 @@ localisation_links = {
 	Capital = {
 		input_scopes = { country }
 		output_scope = { province }
+	}
+	Country = {
+		input_scopes = { country }
+		output_scope = { country }
 	}
 	Monarch = {
 		input_scopes = { country }

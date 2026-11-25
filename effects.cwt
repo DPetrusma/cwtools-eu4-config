@@ -2557,7 +2557,7 @@ alias[effect:leave_league] = <religion>
 
 ## scope = country
 ###Removes the Empire of China and the Mandate system.
-alias[effect:dismantle_empire_of_china] = yes
+alias[effect:dismantle_empire_of_china] = bool
 
 ## scope = country
 ###Sets the current Emperor of China.

@@ -307,7 +307,7 @@ province_history = {
 
 	subtype[!owned] = {
 		native_size = int
-		native_ferocity = float[0..10]
+		native_ferocity = float[0..20]
 		native_hostileness = float[0..10]
 	}
 }

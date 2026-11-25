@@ -619,8 +619,8 @@ alias[trigger:country_or_vassal_holds] = scope[country]
 alias[trigger:country_or_vassal_holds] = enum[country_tags]
 
 ## scope = province
-###Returns true if the province is part of the specified country or its subjects.
-alias[trigger:country_or_subject_holds] = scope[country]
+###Returns true if the province is part of the specified country or its subjects, or the owner of X if X is another province.
+alias[trigger:country_or_subject_holds] = scope[any]
 
 ## scope = province
 ###Returns true if the province is part of the specified country or its subjects.
@@ -3577,7 +3577,7 @@ alias[trigger:overlord_of] = enum[country_tags]
 alias[trigger:overseas_provinces_percentage] = float
 
 ## scope = province
-###Returns true if the province is owned by the country X.
+###Returns true if the province is owned by the country X or the owner of X if X is another province.
 alias[trigger:owned_by] = scope[any]
 
 ## scope = province
@@ -4901,7 +4901,8 @@ alias[trigger:owns_or_vassal_of] = scope[province]
 alias[trigger:mission_completed] = <mission>
 
 ## scope = province
-alias[trigger:country_or_non_sovereign_subject_holds] = scope[country]
+###Returns true if the province is part of the specified country or its non-tributary subjects, or the owner of X if X is another province.
+alias[trigger:country_or_non_sovereign_subject_holds] = scope[any]
 
 ## scope = province
 alias[trigger:country_or_non_sovereign_subject_holds] = enum[country_tags]
@@ -5810,6 +5811,10 @@ alias[trigger:humiliated] = enum[country_tags]
 ## scope = country
 ###Returns true if the scoped country has humiliated the specified country
 alias[trigger:humiliated] = scope[country]
+
+## scope = province
+###Returns true if scoped province is in the same trade node as specified province
+alias[trigger:same_trade_node_as] = scope[province]
 
 ## scope = province
 ###Returns true if scoped province is in the same trade node as specified province

@@ -200,7 +200,7 @@ mercenary_company = {
 	max_size = int[1..inf]
 	## cardinality = 0..1
 	###Starting manpower pool
-	manpower_pool = int[1..inf]
+	manpower_pool = float[1..inf]
 	## cardinality = 0..1
 	###If mercenary company counts toward force limit
 	counts_towards_force_limit = no
